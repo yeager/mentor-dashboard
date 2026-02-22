@@ -1,0 +1,26 @@
+name: Build RPM
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: fedora:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build deps
+        run: dnf install -y rpm-build python3 gettext
+      - name: Build RPM
+        run: |
+          set -e
+          VER=$(grep -oP 'version = "\K[^"]+' pyproject.toml | head -1)
+          mkdir -p ~/rpmbuild/{SOURCES,SPECS,RPMS}
+          tar czf ~/rpmbuild/SOURCES/mentor-dashboard-${VER}.tar.gz --transform "s,^,mentor-dashboard/," -C $(pwd)/.. mentor-dashboard/
+          echo "TmFtZTogICAgICAgICAgIG1lbnRvci1kYXNoYm9hcmQKVmVyc2lvbjogICAgICAgIFZFUlNJT05QTEFDRUhPTERFUgpSZWxlYXNlOiAgICAgICAgMQpTdW1tYXJ5OiAgICAgICAgR1RLNCBhcHAgLSBtZW50b3ItZGFzaGJvYXJkCkxpY2Vuc2U6ICAgICAgICBHUEwtMy4wLW9yLWxhdGVyClVSTDogICAgICAgICAgICBodHRwczovL2dpdGh1Yi5jb20veWVhZ2VyL21lbnRvci1kYXNoYm9hcmQKU291cmNlMDogICAgICAgICV7bmFtZX0tJXt2ZXJzaW9ufS50YXIuZ3oKQnVpbGRBcmNoOiAgICAgIG5vYXJjaApSZXF1aXJlczogICAgICAgcHl0aG9uMywgcHl0aG9uMy1nb2JqZWN0LCBndGs0LCBsaWJhZHdhaXRhCgolZGVzY3JpcHRpb24KR1RLNC9BZHdhaXRhIGFwcGxpY2F0aW9uIGZyb20gRGFubmUgTDEwbiBBcHAgU3VpdGUuCgolcHJlcAolc2V0dXAgLXEgLW4gJXtuYW1lfQoKJWluc3RhbGwKbWtkaXIgLXAgJFJQTV9CVUlMRF9ST09UL3Vzci9iaW4KbWtkaXIgLXAgJFJQTV9CVUlMRF9ST09UL3Vzci9saWIvcHl0aG9uMy9kaXN0LXBhY2thZ2VzL21lbnRvcl9kYXNoYm9hcmQKbWtkaXIgLXAgJFJQTV9CVUlMRF9ST09UL3Vzci9zaGFyZS9hcHBsaWNhdGlvbnMKY3Agc3JjL21lbnRvcl9kYXNoYm9hcmQvKi5weSAkUlBNX0JVSUxEX1JPT1QvdXNyL2xpYi9weXRob24zL2Rpc3QtcGFja2FnZXMvbWVudG9yX2Rhc2hib2FyZC8KcHJpbnRmICcjIS91c3IvYmluL2VudiBweXRob24zXG5mcm9tIG1lbnRvcl9kYXNoYm9hcmQubWFpbiBpbXBvcnQgbWFpblxubWFpbigpXG4nID4gJFJQTV9CVUlMRF9ST09UL3Vzci9iaW4vbWVudG9yLWRhc2hib2FyZApjaG1vZCAreCAkUlBNX0JVSUxEX1JPT1QvdXNyL2Jpbi9tZW50b3ItZGFzaGJvYXJkCmlmIFsgLWYgbWVudG9yLWRhc2hib2FyZC5kZXNrdG9wIF07IHRoZW4gY3AgbWVudG9yLWRhc2hib2FyZC5kZXNrdG9wICRSUE1fQlVJTERfUk9PVC91c3Ivc2hhcmUvYXBwbGljYXRpb25zLzsgZmkKCiVmaWxlcwovdXNyL2Jpbi9tZW50b3ItZGFzaGJvYXJkCi91c3IvbGliL3B5dGhvbjMvZGlzdC1wYWNrYWdlcy9tZW50b3JfZGFzaGJvYXJkLwovdXNyL3NoYXJlL2FwcGxpY2F0aW9ucy8qLmRlc2t0b3AK" | base64 -d | sed "s/VERSIONPLACEHOLDER/${VER}/g" > ~/rpmbuild/SPECS/mentor-dashboard.spec
+          rpmbuild -bb ~/rpmbuild/SPECS/mentor-dashboard.spec
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rpm-package
+          path: ~/rpmbuild/RPMS/**/*.rpm
