@@ -1,7 +1,7 @@
 [main]
 host = https://www.transifex.com
 
-[o:danielnylander:p:mentor-dashboard:r:mentor-dashboard-pot]
+[o:danielnylander:p:mentor-dashboard:r:mentor_dashboard]
 file_filter = po/<lang>.po
 source_file = po/mentor-dashboard.pot
 source_lang = en

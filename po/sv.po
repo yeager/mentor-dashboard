@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the mentor-dashboard package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Daniel Nylander <po@danielnylander.se>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mentor-dashboard 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-22 07:09+0100\n"
+"PO-Revision-Date: 2026-02-22 07:14+0000\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>, 2026\n"
+"Language-Team: Swedish (https://app.transifex.com/danielnylander/teams/305205/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/mentor_dashboard/main.py:67 src/mentor_dashboard/main.py:75
+#: src/mentor_dashboard/main.py:285
+msgid "Mentor Dashboard"
+msgstr "Mentor Dashboard"
+
+#: src/mentor_dashboard/main.py:80
+msgid "Refresh"
+msgstr "Uppdatera"
+
+#: src/mentor_dashboard/main.py:84
+msgid "Search packages..."
+msgstr "Sök efter paket..."
+
+#: src/mentor_dashboard/main.py:90 src/mentor_dashboard/main.py:243
+msgid "Settings"
+msgstr "Inställningar"
+
+#: src/mentor_dashboard/main.py:91
+msgid "Copy Debug Info"
+msgstr "Kopiera felsökningsinformation"
+
+#: src/mentor_dashboard/main.py:92
+msgid "Keyboard Shortcuts"
+msgstr "Tangentbordsgenvägar"
+
+#: src/mentor_dashboard/main.py:93
+msgid "About Mentor Dashboard"
+msgstr "Om Mentor Dashboard"
+
+#: src/mentor_dashboard/main.py:112
+msgid "Debian Mentors"
+msgstr "Debian Mentors"
+
+#: src/mentor_dashboard/main.py:113
+msgid "Click refresh to load packages awaiting review."
+msgstr "Klicka på uppdatera för att läsa in paket som väntar på granskning."
+
+#: src/mentor_dashboard/main.py:123
+msgid "Ready"
+msgstr "Redo"
+
+#: src/mentor_dashboard/main.py:138
+msgid "Welcome"
+msgstr "Välkommen"
+
+#: src/mentor_dashboard/main.py:144
+msgid "Welcome to Mentor Dashboard"
+msgstr "Välkommen till Mentor Dashboard"
+
+#: src/mentor_dashboard/main.py:145
+msgid ""
+"Review packages on Debian Mentors.\n"
+"\n"
+"✓ Browse packages awaiting review\n"
+"✓ Filter by section, priority\n"
+"✓ Review package quality\n"
+"✓ Track sponsorship status\n"
+"✓ Quick lintian checks"
+msgstr ""
+"Granska paket på Debian Mentors.\n"
+"\n"
+"✓ Bläddra bland paket som väntar på granskning\n"
+"✓ Filtrera efter sektion, prioritet\n"
+"✓ Granska paketets kvalitet\n"
+"✓ Spåra sponsringsstatus\n"
+"✓ Snabba lintian-kontroller"
+
+#: src/mentor_dashboard/main.py:152
+msgid "Get Started"
+msgstr "Kom igång"
+
+#: src/mentor_dashboard/main.py:175
+msgid "Fetching from mentors.debian.net..."
+msgstr "Hämtar från mentors.debian.net..."
+
+#: src/mentor_dashboard/main.py:209
+#, python-format
+msgid "%(count)d packages awaiting review"
+msgstr "%(count)d paket väntar på granskning"
+
+#: src/mentor_dashboard/main.py:246
+msgid "Mentors"
+msgstr "Mentorer"
+
+#: src/mentor_dashboard/main.py:247
+msgid "Mentors username"
+msgstr "Användarnamn för Mentors:"
+
+#: src/mentor_dashboard/main.py:266
+msgid "Debug info copied"
+msgstr "Felsökningsinformation kopierades"
+
+#: src/mentor_dashboard/main.py:272
+msgid "General"
+msgstr "Allmänt"
+
+#: src/mentor_dashboard/main.py:274
+msgid "Quit"
+msgstr "Avsluta"
+
+#: src/mentor_dashboard/main.py:275
+msgid "Keyboard shortcuts"
+msgstr "Tangentbordsgenvägar"
+
+#: src/mentor_dashboard/main.py:292
+msgid ""
+"Dashboard for Debian Mentors — review packages, give feedback, track sponsor"
+" status."
+msgstr ""
+"Dashboard för Debian-mentorer — granska paket, ge återkoppling, spåra "
+"sponsorstatus."
