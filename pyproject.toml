@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mentor-dashboard"
-version = "0.1.2"
+version = "0.1.3"
 description = "GTK4 Debian Mentors dashboard for package review and sponsorship"
 requires-python = ">=3.10"
 license = "GPL-3.0-or-later"
