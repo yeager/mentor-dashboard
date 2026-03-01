@@ -1,0 +1,24 @@
+Source: mentor-dashboard
+Section: devel
+Priority: optional
+Maintainer: Daniel Nylander <daniel@danielnylander.se>
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               pybuild-plugin-pyproject,
+               python3-all,
+               python3-setuptools
+Standards-Version: 4.7.0
+Homepage: https://github.com/yeager/mentor-dashboard
+Vcs-Git: https://github.com/yeager/mentor-dashboard.git
+Vcs-Browser: https://github.com/yeager/mentor-dashboard
+
+Package: mentor-dashboard
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends},
+         python3-gi,
+         gir1.2-gtk-4.0,
+         gir1.2-adw-1
+Description: GTK4 dashboard for Debian Mentors packages
+ mentor-dashboard is a GTK4/libadwaita application for monitoring and
+ managing packages on mentors.debian.net. It provides an overview of
+ uploaded packages, their review status, and sponsor activity.
